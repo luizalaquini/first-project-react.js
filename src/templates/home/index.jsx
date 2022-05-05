@@ -19,7 +19,7 @@ export const Home = () => {
 
     const filteredPosts = !!searchValue ? 
     allPosts.filter(post => {
-        return post.title.toLowerCase().includes(searchValue.toLowerCase());
+        return post.title.toLowerCase().includes(searchValue.toLowerCase()) + post.body.toLowerCase().includes(searchValue.toLowerCase());
     }) 
     : posts; 
 
