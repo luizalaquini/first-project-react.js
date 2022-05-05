@@ -1,0 +1,10 @@
+.container {
+    min-height: 100vh;
+    background: #eee;
+    padding: 30px;
+}
+
+.search-container, .search-container h1 {
+    margin-bottom: 30px;
+}
+
