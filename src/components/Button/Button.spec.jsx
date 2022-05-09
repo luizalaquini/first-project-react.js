@@ -1,5 +1,6 @@
 import { fireEvent, getByRole, render, screen } from '@testing-library/react';
 //import { userEvent } from '@testing-library/user-event';
+import TestRenderer from 'react-test-renderer';
 import { Button } from '.';
 
 describe('<Button/>', () => {
@@ -35,4 +36,11 @@ describe('<Button/>', () => {
         render(<Button text='Load more' disabled={false} />);
         expect(screen.getByRole('button', {name: /load more/i})).toBeEnabled();
     }); 
+
+    it('should match snapshot', () => {
+        const container = TestRenderer.create(
+            <Button text='Load more' disabled={false} />
+        ).toJSON();    
+        expect(container).toMatchSnapshot();
+    });
 });
