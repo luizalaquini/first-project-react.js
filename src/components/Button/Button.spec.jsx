@@ -1,14 +1,16 @@
-import { fireEvent, getByRole, render, screen } from '@testing-library/react';
-//import { userEvent } from '@testing-library/user-event';
+import React from 'react';
+import { jest } from '@jest/globals';
+import { fireEvent, render, screen } from '@testing-library/react';
 import TestRenderer from 'react-test-renderer';
 import { Button } from '.';
 
 describe('<Button/>', () => {
     it('should render with the text "Load More"', () => {
-        render(<Button text='Load more'/>);
+        const fn = jest.fn();
+        render(<Button text='Load more' onClick={fn}/>);
 
         expect.assertions(1); // para garantir que pelo menos uma acersao ocorreu (expect)
-                                // comum em teste assincronos
+                              // comum em testes assincronos
                                 
         const button = screen.getByRole('button', {name: /load more/i});
         expect(button).toBeInTheDocument();
@@ -28,18 +30,21 @@ describe('<Button/>', () => {
     }); 
 
     it('should be disabled when "disabled=true"', () => {
-        render(<Button text='Load more' disabled={true} />);
+        const fn = jest.fn();
+        render(<Button text='Load more' disabled={true} onClick={fn}/>);
         expect(screen.getByRole('button', {name: /load more/i})).toBeDisabled();
     }); 
 
     it('should be enabled when "disabled=false"', () => {
-        render(<Button text='Load more' disabled={false} />);
+        const fn = jest.fn();
+        render(<Button text='Load more' disabled={false} onClick={fn}/>);
         expect(screen.getByRole('button', {name: /load more/i})).toBeEnabled();
     }); 
 
     it('should match snapshot', () => {
+        const fn = jest.fn();
         const container = TestRenderer.create(
-            <Button text='Load more' disabled={false} />
+            <Button text='Load more' disabled={false} onClick={fn} />
         ).toJSON();    
         expect(container).toMatchSnapshot();
     });

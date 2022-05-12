@@ -4,6 +4,7 @@ exports[`<Button/> should match snapshot 1`] = `
 <button
   className="btn"
   disabled={false}
+  onClick={[MockFunction]}
 >
   Load more
 </button>

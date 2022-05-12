@@ -1,4 +1,5 @@
-import { Component } from 'react';
+import React, { Component } from 'react';
+import P from 'prop-types';
 
 import './style.css'
 
@@ -23,3 +24,13 @@ export class Button extends Component{
 //     </button>
 // );
 // [COMO USAR CSS AQUI?]
+
+Button.propTypes = {
+    text: P.string.isRequired,
+    onClick: P.func.isRequired,
+    disabled: P.bool, // quando nao passa isRequired é necessario passar um padrao
+};
+
+Button.defaultProps = {
+    disabled: false,
+};

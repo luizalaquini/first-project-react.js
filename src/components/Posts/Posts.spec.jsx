@@ -1,3 +1,4 @@
+import React from "react";
 import { render, screen } from "@testing-library/react";
 import { Posts } from '.'
 
@@ -26,8 +27,8 @@ const props = {
 
 describe ('<Posts/>', () => {
     it ('should render posts', () => {
-        const {debug} = render(<Posts {...props}/>);
-        debug();
+        render(<Posts {...props}/>);
+       // debug();
 
         expect(screen.getAllByRole('heading', {name: /title/i })).toHaveLength(3);
         expect(screen.getAllByRole('img', {name: /title/i })).toHaveLength(3);
