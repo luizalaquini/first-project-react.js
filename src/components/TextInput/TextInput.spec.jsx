@@ -14,7 +14,7 @@ describe('<TextInput/>', () => {
         const fn = jest.fn();
         render(<TextInput handleChange={fn} searchValue='valor qualquer' />);
 
-        const input = screen.getByPlaceholderText(/Pesquisa/i);
+        const input = screen.getByPlaceholderText(/Your search/i);
         const value = 'testando';
 
         type(input, value);

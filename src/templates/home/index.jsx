@@ -13,7 +13,7 @@ export const Home = () => {
     const [posts, setPosts] = useState([]);
     const [allPosts, setAllPosts] = useState([]);
     const [page, setPages] = useState(0);
-    const [postsPerPage] = useState(20);
+    const [postsPerPage] = useState(12);
     const [searchValue, setSearchValue] = useState('');
 
     const noMorePosts = page + postsPerPage >= allPosts.length;
@@ -55,7 +55,7 @@ export const Home = () => {
             
             <div className='search-container'>
                 {!!searchValue && ( // se houver uma busca
-                    <h1>Busca: {searchValue}</h1>
+                    <h1>Your search: {searchValue}</h1>
                 )}
 
                 <TextInput 

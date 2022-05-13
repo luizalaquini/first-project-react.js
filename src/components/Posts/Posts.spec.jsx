@@ -28,7 +28,7 @@ const props = {
 describe ('<Posts/>', () => {
     it ('should render posts', () => {
         render(<Posts {...props}/>);
-       // debug();
+        // debug();
 
         expect(screen.getAllByRole('heading', {name: /title/i })).toHaveLength(3);
         expect(screen.getAllByRole('img', {name: /title/i })).toHaveLength(3);
